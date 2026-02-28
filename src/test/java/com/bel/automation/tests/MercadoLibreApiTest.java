@@ -1,27 +1,26 @@
-package com.bel.automation.tests;
+package com.bel.automation.tests; // Tu ubicación actual
 
 import io.restassured.RestAssured;
 import org.testng.annotations.Test;
-import utils.BaseTest; // 1. Importamos tu configuracion base
+// CAMBIO CLAVE: Ponemos la dirección completa de BaseTest
+import com.bel.automation.utils.BaseTest;
 import static org.hamcrest.Matchers.*;
 
-public class MercadoLibreApiTest extends BaseTest { // 2. "extends BaseTest" activa el Chrome
+public class MercadoLibreApiTest extends BaseTest { // Ahora sí hereda el driver
 
     @Test
     public void validarDepartamentosMercadoLibre() {
         String url = "https://www.mercadolibre.com.ar/menu/departments";
 
-        // 3. Abrimos la pagina en el navegador.
-        // Esto es lo que permite que el robot saque una foto si algo sale mal.
+        // Al heredar de BaseTest, 'driver' ahora sí existe
         driver.get(url);
 
-        // 4. Hacemos la validacion de la API (el servicio web)
         RestAssured.given()
                 .get(url)
                 .then()
-                .statusCode(200) // Verifica que la conexion sea exitosa
-                .body("departments", notNullValue()); // Verifica que existan departamentos
+                .statusCode(200)
+                .body("departments", notNullValue());
 
-        System.out.println("API de Mercado Libre validada con exito.");
+        System.out.println("API de Mercado Libre validada con éxito.");
     }
 }
