@@ -21,6 +21,31 @@ public class SauceDemoTest {
 
     // --- PUNTO 3: 2 CASOS DE LOGIN ---
 
+    // --- AUTOMATIZACIÓN CP-03: CONTRASEÑA INCORRECTA ---
+    @Test
+    public void CP03_ContrasenaIncorrecta() {
+        // Pasos: Ingresar usuario correcto y clave cualquiera
+        driver.findElement(By.id("user-name")).sendKeys("standard_user");
+        driver.findElement(By.id("password")).sendKeys("clave_error_123");
+        driver.findElement(By.id("login-button")).click();
+
+        // Resultado Esperado: Verificar el mensaje de error de credenciales
+        String mensajeError = driver.findElement(By.cssSelector("h3[data-test='error']")).getText();
+        Assert.assertTrue(mensajeError.contains("Username and password do not match"),
+                "No apareció el mensaje de error esperado para contraseña incorrecta.");
+    }
+
+    // --- AUTOMATIZACIÓN CP-05: CAMPOS VACÍOS ---
+    @Test
+    public void CP05_CamposVacios() {
+        // Pasos: No escribimos nada (dejamos vacíos) y clic en Login
+        driver.findElement(By.id("login-button")).click();
+
+        // Resultado Esperado: Verificar mensaje de "usuario requerido"
+        String mensajeError = driver.findElement(By.cssSelector("h3[data-test='error']")).getText();
+        Assert.assertTrue(mensajeError.contains("Username is required"),
+                "No apareció el mensaje indicando que el usuario es requerido.");
+    }
     @Test
     public void CP01_LoginExitoso() {
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
