@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-02-28T19:45:31 ART" name="Default Suite" finished-at="2026-02-28T19:45:34 ART" duration-ms="2966">
+    <groups>
+    </groups>
+    <test started-at="2026-02-28T19:45:31 ART" name="ui-framework" finished-at="2026-02-28T19:45:34 ART" duration-ms="2966">
+      <class name="com.bel.automation.tests.MercadoLibreApiTest">
+        <test-method signature="validarDepartamentosMercadoLibre()[pri:0, instance:com.bel.automation.tests.MercadoLibreApiTest@7bb58ca3]" started-at="2026-02-28T19:45:31 ART" name="validarDepartamentosMercadoLibre" finished-at="2026-02-28T19:45:34 ART" duration-ms="2893" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validarDepartamentosMercadoLibre -->
+      </class> <!-- com.bel.automation.tests.MercadoLibreApiTest -->
+    </test> <!-- ui-framework -->
+  </suite> <!-- Default Suite -->
+</testng-results>
