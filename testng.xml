@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite de Pruebas">
-    <listeners>
-        <listener class-name="com.bel.automation.utils.Listeners" />
-    </listeners>
-    <test name="Test de Capturas">
+    <test name="Test de Mercado Libre">
         <classes>
-            <class name="com.bel.automation.tests.LoginTest" />
-            <class name="com.bel.automation.tests.SauceDemoTest"/>
+            <class name="com.bel.automation.tests.MercadoLibreApiTest"/>
         </classes>
     </test>
 </suite>
