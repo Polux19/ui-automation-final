@@ -1,20 +1,29 @@
+package com.bel.automation.tests;
+
 import io.restassured.RestAssured;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.BaseTest; // Importamos el BaseTest para usar el Chrome
 import static org.hamcrest.Matchers.*;
 
-public class MercadoLibreApiTest {
+public class MercadoLibreApiTest extends BaseTest { // <--- Agregamos "extends BaseTest"
 
     @Test
     public void validarDepartamentosMercadoLibre() {
-        // El servicio que nos pide el examen
         String url = "https://www.mercadolibre.com.ar/menu/departments";
 
+        // 1. Abrimos la URL en el navegador para que, si falla, HAYA una foto que sacar
+        driver.get(url);
+
+        // 2. Validamos la API
         RestAssured.given()
                 .get(url)
                 .then()
-                .statusCode(200) // Verificamos que la página responda OK
-                .body("departments", notNullValue()); // Verificamos que contenga departamentos
+                .statusCode(200)
+                .body("departments", notNullValue());
 
-        System.out.println("API de Mercado Libre validada con éxito.");
+        // Assert.assertTrue(false, "Falla intencional para capturar pantalla de API");
+
+        System.out.println("API de Mercado Libre validada y foto disponible si falla.");
     }
 }
