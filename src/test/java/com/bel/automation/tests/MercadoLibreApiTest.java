@@ -22,6 +22,7 @@ public class MercadoLibreApiTest extends BaseTest { // <--- Agregamos "extends B
                 .statusCode(200)
                 .body("departments", notNullValue());
 
+        // 3. Forzamos una falla para que veas la foto (opcional, igual que en el CP05)
         // Assert.assertTrue(false, "Falla intencional para capturar pantalla de API");
 
         System.out.println("API de Mercado Libre validada y foto disponible si falla.");
