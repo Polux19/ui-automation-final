@@ -1,11 +1,11 @@
 package com.bel.automation.tests;
 
 import io.restassured.RestAssured;
-import org.testng.annotations.Listeners; // Agregamos este import para que reconozca la etiqueta
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
 import static org.hamcrest.Matchers.*;
 
-// 1. La etiqueta mágica va aquí una sola vez
 @Listeners(com.bel.automation.utils.Listeners.class)
 public class MercadoLibreApiTest {
 
@@ -22,7 +22,7 @@ public class MercadoLibreApiTest {
 
         System.out.println("API de Mercado Libre validada con éxito.");
 
-        // 2. PARA TU TAREA: Descomenta la línea de abajo para que falle y ver el reporte
+        // Para fallar a propósito y ver el Listener (captura/reporte):
         // org.testng.Assert.fail("Fallo forzado para probar el reporte con captura");
     }
 }

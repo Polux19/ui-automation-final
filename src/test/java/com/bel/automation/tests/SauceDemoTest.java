@@ -1,17 +1,15 @@
 package com.bel.automation.tests;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
-import org.testng.annotations.Listeners;
-import java.io.File;
-import java.nio.file.Files;
+import org.testng.annotations.*;          // @Test, @BeforeMethod, @AfterMethod, etc.
+import org.testng.annotations.Listeners;  // @Listeners
 
-// Conexión con tu clase de reportes y capturas
 @Listeners(com.bel.automation.utils.Listeners.class)
 public class SauceDemoTest {
+
     WebDriver driver;
 
     @BeforeMethod
@@ -62,7 +60,8 @@ public class SauceDemoTest {
     public void CP05_CamposVacios() {
         driver.findElement(By.id("login-button")).click();
         String error = driver.findElement(By.cssSelector("h3[data-test='error']")).getText();
-        // FALLO A PROPÓSITO: Para que el reporte genere la captura de pantalla
+
+        // FALLO A PROPÓSITO (para que el Listener saque captura y quede en el reporte)
         Assert.assertTrue(error.contains("Cualquier cosa"), "Generando captura de pantalla...");
     }
 
@@ -99,7 +98,7 @@ public class SauceDemoTest {
         driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
         driver.findElement(By.className("shopping_cart_link")).click();
         driver.findElement(By.id("remove-sauce-labs-backpack")).click();
-        // AQUÍ ESTABA EL ERROR: Faltaba .size() y el punto y coma (;)
+
         int size = driver.findElements(By.className("inventory_item_name")).size();
         Assert.assertEquals(size, 0);
     }
