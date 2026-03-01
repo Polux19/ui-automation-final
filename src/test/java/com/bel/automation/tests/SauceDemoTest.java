@@ -99,4 +99,6 @@ public class SauceDemoTest {
         driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
         driver.findElement(By.className("shopping_cart_link")).click();
         driver.findElement(By.id("remove-sauce-labs-backpack")).click();
-        int size = driver.findElements(By.className("inventory_item_name")).
+        int size = driver.findElements(By.className("inventory_item_name"))
+    }
+
